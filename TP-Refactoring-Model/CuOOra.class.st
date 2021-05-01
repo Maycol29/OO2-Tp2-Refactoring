@@ -10,11 +10,6 @@ Class {
 }
 
 { #category : #adding }
-CuOOra >> addQuestion: aQuestion [
-	questions add: aQuestion
-]
-
-{ #category : #adding }
 CuOOra >> addQuestion: aQuestion forUser: aUser [
 	aUser addQuestion: aQuestion.
 	questions add: aQuestion.

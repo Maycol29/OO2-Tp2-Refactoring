@@ -18,8 +18,7 @@ Answer class >> new: anAnswer user: aUser question: aQuestion [
 
 { #category : #initialize }
 Answer >> initialize [
-	votes := OrderedCollection new.
-	timestamp := DateAndTime now.
+	super initialize .
 ]
 
 { #category : #accessing }

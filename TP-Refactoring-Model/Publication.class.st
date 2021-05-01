@@ -25,6 +25,12 @@ Publication >> description: anObject [
 	description := anObject
 ]
 
+{ #category : #initialization }
+Publication >> initialize [
+	votes := OrderedCollection new.
+	timestamp := DateAndTime now.
+]
+
 { #category : #accessing }
 Publication >> negativeVotes [
 	^votes reject:[:vote | vote isLike].

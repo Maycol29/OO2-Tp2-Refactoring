@@ -7,9 +7,9 @@ Class {
 		'answers',
 		'username',
 		'password',
-		'topics',
 		'following',
-		'votes'
+		'interestTopics',
+		'userVotes'
 	],
 	#category : #'TP-Refactoring-Model'
 }
@@ -30,29 +30,29 @@ User >> addAnswer: anAnswer [
 ]
 
 { #category : #accessing }
+User >> addFollowing: aUser [
+	following add: aUser 
+]
+
+{ #category : #accessing }
 User >> addQuestion: aQuestion [
 	questions add: aQuestion
 ]
 
 { #category : #accessing }
 User >> addTopic: aTopic [
-	topics add: aTopic 
+	interestTopics add: aTopic 
 
 ]
 
 { #category : #accessing }
 User >> addVote: aVote [
-	votes add: aVote
+	userVotes add: aVote
 ]
 
 { #category : #accessing }
 User >> answers [
 	^ answers
-]
-
-{ #category : #accessing }
-User >> follow: aUser [
-	following add: aUser 
 ]
 
 { #category : #accessing }
@@ -65,9 +65,14 @@ User >> initialize [
 
 	questions := OrderedCollection new.  
 	answers := OrderedCollection new. 
-	topics := OrderedCollection new. 
+	interestTopics := OrderedCollection new. 
 	following := OrderedCollection new. 
-	votes := OrderedCollection new.
+	userVotes := OrderedCollection new.
+]
+
+{ #category : #accessing }
+User >> interestTopics [
+	^ interestTopics
 ]
 
 { #category : #accessing }
@@ -101,11 +106,6 @@ User >> questionsOfInterest [
 ]
 
 { #category : #accessing }
-User >> topics [
-	^ topics
-]
-
-{ #category : #accessing }
 User >> username [
 	^ username
 ]
@@ -117,5 +117,5 @@ User >> username: anObject [
 
 { #category : #accessing }
 User >> votes [
-	^ votes
+	^ userVotes
 ]

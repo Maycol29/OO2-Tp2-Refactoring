@@ -44,9 +44,9 @@ QuestionRetriever >> retrieveQuestions: aUser [
 			qRet := temp last: (100 min: temp size).
 		].
 
-	option = #topics ifTrue:[
+	option = #interestTopics ifTrue:[
 			topicsCol := OrderedCollection new.
-			aUser topics do:[ :topic | topicsCol addAll: topic questions ].
+			aUser interestTopics do:[ :topic | topicsCol addAll: topic questions ].
 			temp := topicsCol asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size).
 		].

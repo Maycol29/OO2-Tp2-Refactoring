@@ -1,36 +1,36 @@
 Class {
-	#name : #QuestionTest,
+	#name : #PublicationTest,
 	#superclass : #TestCase,
 	#instVars : [
-		'question'
+		'question',
+		'answer'
 	],
 	#category : #'TP-Refactoring-Tests'
 }
 
-{ #category : #setup }
-QuestionTest >> setUp [
+{ #category : #running }
+PublicationTest >> setUp [
 	question := Question  newWithTitle: 'Question  title' description: 'Question description' user: (User new).
 	question addVote: (Vote user: (User new) likesPublication: question).	
 	question addVote: (Vote user: (User new) dislikesPublication: question).	
+	answer := Answer new:'An answer'  user:(User new)  question:(Question new).
+	answer addVote: (Vote user: (User new) likesPublication: answer).	
+	answer addVote: (Vote user: (User new) dislikesPublication: answer).	
 
 ]
 
 { #category : #testing }
-QuestionTest >> testNegativeVotes [		
+PublicationTest >> testNegativeVotes [
 	self assert: (question negativeVotes size) equals: 1.
 	self assert: (question votes size) equals: 2.
+	self assert: (answer negativeVotes size) equals: 1.
+	self assert: (answer votes size) equals: 2.
 ]
 
 { #category : #testing }
-QuestionTest >> testPositiveVotes [
+PublicationTest >> testPositiveVotes [
 	self assert: (question positiveVotes size) equals: 1.
 	self assert: (question votes size) equals: 2.
-	
-]
-
-{ #category : #testing }
-QuestionTest >> testVotesForNewQuestion [
-	self assert: (question negativeVotes size) equals: 0.
-	self assert: (question positiveVotes size) equals: 0.
-		
+	self assert: (answer positiveVotes size) equals: 1.
+	self assert: (answer votes size) equals: 2.
 ]
