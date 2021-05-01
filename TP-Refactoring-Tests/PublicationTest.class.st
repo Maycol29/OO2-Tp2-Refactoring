@@ -10,7 +10,7 @@ Class {
 
 { #category : #running }
 PublicationTest >> setUp [
-	question := Question  newWithTitle: 'Question  title' description: 'Question description' user: (User new).
+	question := Question  newWithTitle: 'Question  title' description: 'Question description' user: (User new) topic:(Topic new).
 	question addVote: (Vote user: (User new) likesPublication: question).	
 	question addVote: (Vote user: (User new) dislikesPublication: question).	
 	answer := Answer new:'An answer'  user:(User new)  question:(Question new).
