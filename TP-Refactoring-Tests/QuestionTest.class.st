@@ -27,10 +27,3 @@ QuestionTest >> testPositiveVotes [
 	self assert: (question votes size) equals: 2.
 	
 ]
-
-{ #category : #testing }
-QuestionTest >> testVotesForNewQuestion [
-	self assert: (question negativeVotes size) equals: 0.
-	self assert: (question positiveVotes size) equals: 0.
-		
-]

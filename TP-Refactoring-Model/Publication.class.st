@@ -10,6 +10,17 @@ Class {
 	#category : #'TP-Refactoring-Model'
 }
 
+{ #category : #'instance creation' }
+Publication class >> newDescription: aDescription user: aUser [.
+^self new Description: aDescription user: aUser.
+]
+
+{ #category : #accessing }
+Publication >> Description: aDescription user: aUser [.
+description :=aDescription.
+user:=aUser.
+]
+
 { #category : #adding }
 Publication >> addVote: aVote [
 	votes add: aVote

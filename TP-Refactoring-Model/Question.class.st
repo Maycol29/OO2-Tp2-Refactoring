@@ -10,22 +10,12 @@ Class {
 }
 
 { #category : #'instance creation' }
-Question class >> newWithTitle: title description: aDescription user: aUser [
-	^ self new
-		title: title;
-		description: aDescription;
-		user: aUser;
-		yourself.
-]
-
-{ #category : #'instance creation' }
 Question class >> newWithTitle: title description: aDescription user: aUser topic: aTopic [
-	^ self new
-		title: title;
-		description: aDescription;
-		addTopic: aTopic;
-		user: aUser;
-		yourself.
+|instance|
+	instance:=self newDescription: aDescription user: aUser.
+	instance title: title; 
+	addTopic: aTopic.
+	^instance.
 ]
 
 { #category : #adding }
