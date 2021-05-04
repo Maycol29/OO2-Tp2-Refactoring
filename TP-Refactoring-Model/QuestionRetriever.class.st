@@ -28,6 +28,11 @@ QuestionRetriever >> initialize [
 	option := #social
 ]
 
+{ #category : #accessing }
+QuestionRetriever >> lastQuestions: aQuestionList [
+	^ aQuestionList last: (100 min: aQuestionList size)
+]
+
 { #category : #accesing }
 QuestionRetriever >> option: anOption [
 	option := anOption
@@ -35,36 +40,11 @@ QuestionRetriever >> option: anOption [
 
 { #category : #retrieving }
 QuestionRetriever >> retrieveQuestions: aUser [
-	| qRet temp followingCol topicsCol newsCol popularTCol averageVotes|
-	qRet := OrderedCollection new.
-	option = #social ifTrue:[
-			followingCol := OrderedCollection new.
-			aUser following do:[ :follow | followingCol addAll: follow userQuestions ].
-			temp := followingCol asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
-			qRet := temp last: (100 min: temp size).
-		].
+	self subclassResponsibility 
+]
 
-	option = #interestTopics ifTrue:[
-			topicsCol := OrderedCollection new.
-			aUser interestTopics do:[ :topic | topicsCol addAll: topic userQuestions ].
-			temp := topicsCol asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
-			qRet := temp last: (100 min: temp size).
-		].
-	
-	option = #news ifTrue:[
-			newsCol := OrderedCollection new.
-			cuoora userQuestions do:[:q | (q timestamp asDate = Date today) ifTrue: [newsCol add: q]].
-			temp := newsCol asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
-			qRet := temp last: (100 min: temp size).
-		].
+{ #category : #'as yet unclassified' }
+QuestionRetriever >> without: aUser questions: aQuestionList [
 
-	option = #popularToday ifTrue:[
-			popularTCol := OrderedCollection new.
-			cuoora userQuestions do:[:q | (q timestamp asDate = Date today) ifTrue: [popularTCol add: q]].
-			averageVotes := (cuoora userQuestions sum: [:q | q positiveVotes size ]) / popularTCol size.
-			temp := (popularTCol select:[:q | q positiveVotes size >= averageVotes ]) asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
-			qRet := temp last: (100 min: temp size).
-		].
-	
-	^qRet reject:[:q | q user = aUser].
+	^ aQuestionList reject: [ :q | q user = aUser ]
 ]
