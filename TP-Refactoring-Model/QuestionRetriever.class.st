@@ -39,29 +39,29 @@ QuestionRetriever >> retrieveQuestions: aUser [
 	qRet := OrderedCollection new.
 	option = #social ifTrue:[
 			followingCol := OrderedCollection new.
-			aUser following do:[ :follow | followingCol addAll: follow questions ].
+			aUser following do:[ :follow | followingCol addAll: follow userQuestions ].
 			temp := followingCol asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size).
 		].
 
 	option = #interestTopics ifTrue:[
 			topicsCol := OrderedCollection new.
-			aUser interestTopics do:[ :topic | topicsCol addAll: topic questions ].
+			aUser interestTopics do:[ :topic | topicsCol addAll: topic userQuestions ].
 			temp := topicsCol asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size).
 		].
 	
 	option = #news ifTrue:[
 			newsCol := OrderedCollection new.
-			cuoora questions do:[:q | (q timestamp asDate = Date today) ifTrue: [newsCol add: q]].
+			cuoora userQuestions do:[:q | (q timestamp asDate = Date today) ifTrue: [newsCol add: q]].
 			temp := newsCol asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size).
 		].
 
 	option = #popularToday ifTrue:[
 			popularTCol := OrderedCollection new.
-			cuoora questions do:[:q | (q timestamp asDate = Date today) ifTrue: [popularTCol add: q]].
-			averageVotes := (cuoora questions sum: [:q | q positiveVotes size ]) / popularTCol size.
+			cuoora userQuestions do:[:q | (q timestamp asDate = Date today) ifTrue: [popularTCol add: q]].
+			averageVotes := (cuoora userQuestions sum: [:q | q positiveVotes size ]) / popularTCol size.
 			temp := (popularTCol select:[:q | q positiveVotes size >= averageVotes ]) asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size).
 		].

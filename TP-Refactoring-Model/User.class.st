@@ -3,13 +3,13 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'questionRetriever',
-		'questions',
 		'answers',
 		'username',
 		'password',
 		'following',
 		'interestTopics',
-		'userVotes'
+		'userVotes',
+		'userQuestions'
 	],
 	#category : #'TP-Refactoring-Model'
 }
@@ -34,7 +34,7 @@ User >> addFollowing: aUser [
 
 { #category : #accessing }
 User >> addQuestion: aQuestion [
-	questions add: aQuestion
+	userQuestions add: aQuestion
 ]
 
 { #category : #accessing }
@@ -61,7 +61,7 @@ User >> following [
 { #category : #initialize }
 User >> initialize [
 
-	questions := OrderedCollection new.  
+	userQuestions := OrderedCollection new.  
 	answers := OrderedCollection new. 
 	interestTopics := OrderedCollection new. 
 	following := OrderedCollection new. 
@@ -84,13 +84,13 @@ User >> questionRetriever [
 ]
 
 { #category : #accessing }
-User >> questions [
-	^ questions
+User >> questionsOfInterest [
+	^ questionRetriever retrieveQuestions: self.
 ]
 
 { #category : #accessing }
-User >> questionsOfInterest [
-	^ questionRetriever retrieveQuestions: self.
+User >> userQuestions [
+	^ userQuestions
 ]
 
 { #category : #accessing }
