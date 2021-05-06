@@ -27,6 +27,11 @@ CuOOra >> addUser: aUser [
 
 ]
 
+{ #category : #accessing }
+CuOOra >> averageQuestionVotes [
+^(questions sumNumbers: [:question| question positiveVotes size ])/ (self todayQuestions size).
+]
+
 { #category : #initialize }
 CuOOra >> initialize [
 	users := OrderedCollection new.
@@ -36,12 +41,7 @@ CuOOra >> initialize [
 
 { #category : #accessing }
 CuOOra >> popularQuestion [
-^self todayQuestions select:[:question | question positiveVotes > self promedio].
-]
-
-{ #category : #accessing }
-CuOOra >> promedio [
-^(questions sumNumbers: [:question| question positiveVotes size ])/ (self todayQuestions size).
+^self todayQuestions select:[:question | question positiveVotes > self averageQuestionVotes].
 ]
 
 { #category : #accessing }
