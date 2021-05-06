@@ -11,7 +11,7 @@ Class {
 
 { #category : #adding }
 CuOOra >> addQuestion: aQuestion forUser: aUser [
-	aUser addQuestion: aQuestion.
+	aUser addUserQuestion: aQuestion.
 	questions add: aQuestion.
 ]
 

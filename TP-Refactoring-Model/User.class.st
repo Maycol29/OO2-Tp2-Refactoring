@@ -33,14 +33,14 @@ User >> addFollowing: aUser [
 ]
 
 { #category : #accessing }
-User >> addQuestion: aQuestion [
-	userQuestions add: aQuestion
+User >> addInterestTopic: aTopic [
+	interestTopics add: aTopic 
+
 ]
 
 { #category : #accessing }
-User >> addTopic: aTopic [
-	interestTopics add: aTopic 
-
+User >> addUserQuestion: aQuestion [
+	userQuestions add: aQuestion
 ]
 
 { #category : #accessing }
