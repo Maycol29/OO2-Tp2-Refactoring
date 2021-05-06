@@ -2,7 +2,6 @@ Class {
 	#name : #QuestionRetriever,
 	#superclass : #Object,
 	#instVars : [
-		'option',
 		'cuoora'
 	],
 	#category : #'TP-Refactoring-Model'
@@ -11,11 +10,6 @@ Class {
 { #category : #'instance creation' }
 QuestionRetriever class >> new: cuoora [
 	^ self new cuoora: cuoora
-]
-
-{ #category : #'instance creation' }
-QuestionRetriever class >> new: cuoora and: aSymbol [
-	^ self new cuoora: cuoora; option:aSymbol; yourself.
 ]
 
 { #category : #accesing }
@@ -31,11 +25,6 @@ QuestionRetriever >> initialize [
 { #category : #accesing }
 QuestionRetriever >> lastQuestions: aQuestionList [
 	^ aQuestionList last: (100 min: aQuestionList size)
-]
-
-{ #category : #accesing }
-QuestionRetriever >> option: anOption [
-	option := anOption
 ]
 
 { #category : #accesing }
