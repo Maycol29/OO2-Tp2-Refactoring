@@ -58,6 +58,12 @@ User >> following [
 	^ following
 ]
 
+{ #category : #accessing }
+User >> followingQuestions [
+^following flatCollect:[:user | user userQuestions].
+
+]
+
 { #category : #initialize }
 User >> initialize [
 
