@@ -35,6 +35,16 @@ CuOOra >> initialize [
 ]
 
 { #category : #accessing }
+CuOOra >> popularQuestion [
+^self todayQuestions select:[:question | question positiveVotes > self promedio].
+]
+
+{ #category : #accessing }
+CuOOra >> promedio [
+^(questions sumNumbers: [:question| question positiveVotes size ])/ (self todayQuestions size).
+]
+
+{ #category : #accessing }
 CuOOra >> questions [
 	^ questions
 ]
