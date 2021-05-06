@@ -51,6 +51,5 @@ QuestionRetriever >> retrieveQuestions: aUser [
 
 { #category : #accesing }
 QuestionRetriever >> without: aUser questions: aQuestionList [
-
 	^ aQuestionList reject: [ :q | q user = aUser ]
 ]
