@@ -6,5 +6,5 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverInterestTopics >> retrieveQuestions: aUser [
-	^self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: (aUser questionOfInterestTopics))).
+	^self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: (aUser questionsOfInterestTopics))).
 ]
