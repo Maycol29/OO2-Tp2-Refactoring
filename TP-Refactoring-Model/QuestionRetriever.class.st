@@ -2,7 +2,6 @@ Class {
 	#name : #QuestionRetriever,
 	#superclass : #Object,
 	#instVars : [
-		'option',
 		'cuoora'
 	],
 	#category : #'TP-Refactoring-Model'
@@ -11,11 +10,6 @@ Class {
 { #category : #'instance creation' }
 QuestionRetriever class >> new: cuoora [
 	^ self new cuoora: cuoora
-]
-
-{ #category : #'instance creation' }
-QuestionRetriever class >> new: cuoora and: aSymbol [
-	^ self new cuoora: cuoora; option:aSymbol; yourself.
 ]
 
 { #category : #accesing }
@@ -34,11 +28,6 @@ QuestionRetriever >> lastQuestions: aQuestionList [
 ]
 
 { #category : #accesing }
-QuestionRetriever >> option: anOption [
-	option := anOption
-]
-
-{ #category : #accesing }
 QuestionRetriever >> orderByPositiveVotes: aQuestionList [
 	^ aQuestionList
 		asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ]
@@ -51,6 +40,5 @@ QuestionRetriever >> retrieveQuestions: aUser [
 
 { #category : #accesing }
 QuestionRetriever >> without: aUser questions: aQuestionList [
-
 	^ aQuestionList reject: [ :q | q user = aUser ]
 ]
