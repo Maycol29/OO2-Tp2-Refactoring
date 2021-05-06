@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverInterestTopics >> retrieveQuestions: aUser [
-	| topicsCol temp |
+	| topicsCol |
 	topicsCol := OrderedCollection new.
 	aUser interestTopics
 		do: [ :topic | topicsCol addAll: topic questions ].

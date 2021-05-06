@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverNews >> retrieveQuestions: aUser [
-	| newsCol temp |
+	| newsCol  |
 	newsCol := OrderedCollection new.
 	cuoora questions
 		do: [ :q | 

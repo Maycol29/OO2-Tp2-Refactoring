@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverSocial >> retrieveQuestions: aUser [
-	| followingCol temp |
+	| followingCol |
 	followingCol := OrderedCollection new.
 	aUser following
 		do: [ :follow | followingCol addAll: follow questions ].
