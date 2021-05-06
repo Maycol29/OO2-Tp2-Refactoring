@@ -29,7 +29,7 @@ CuOOra >> addUser: aUser [
 
 { #category : #accessing }
 CuOOra >> averageQuestionVotes [
-^(questions sumNumbers: [:question| question positiveVotes size ])/ (self todayQuestions size).
+^((questions sumNumbers: [:question| question positiveVotes size ])/ (self todayQuestions size)).
 ]
 
 { #category : #initialize }
@@ -41,7 +41,7 @@ CuOOra >> initialize [
 
 { #category : #accessing }
 CuOOra >> popularQuestion [
-^self todayQuestions select:[:question | question positiveVotes > self averageQuestionVotes].
+^self todayQuestions select:[:question | question positiveVotes size > (self averageQuestionVotes)].
 ]
 
 { #category : #accessing }

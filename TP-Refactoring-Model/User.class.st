@@ -96,7 +96,7 @@ User >> questionsOfInterest [
 
 { #category : #accessing }
 User >> questionsOfInterestTopics [
-^interestTopics flatCollect:[:topic |topic question].
+^interestTopics flatCollect:[:topic |topic questions].
 
 
 ]
