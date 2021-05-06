@@ -12,7 +12,6 @@ QuestionRetrieverNews >> retrieveQuestions: aUser [
 		do: [ :q | 
 			q timestamp asDate = Date today
 				ifTrue: [ newsCol add: q ] ].
-	temp := newsCol
-		asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ].
-	^ self without: aUser questions: (self lastQuestions: temp)
+			
+	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: newsCol))
 ]

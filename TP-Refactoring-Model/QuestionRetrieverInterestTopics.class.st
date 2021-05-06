@@ -4,14 +4,13 @@ Class {
 	#category : #'TP-Refactoring-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 QuestionRetrieverInterestTopics >> retrieveQuestions: aUser [
 	| topicsCol temp |
 	topicsCol := OrderedCollection new.
 	aUser interestTopics
 		do: [ :topic | topicsCol addAll: topic questions ].
-	temp := topicsCol
-		asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ].
 	
-	^self without: aUser questions: (self lastQuestions: temp).
+	
+	^self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: topicsCol)).
 ]
