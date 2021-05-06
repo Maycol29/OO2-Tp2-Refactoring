@@ -6,10 +6,5 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverSocial >> retrieveQuestions: aUser [
-	| followingCol |
-	followingCol := OrderedCollection new.
-	aUser following
-		do: [ :follow | followingCol addAll: follow questions ].
-	
-	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: followingCol))
+	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: aUser followingQuestions))
 ]
