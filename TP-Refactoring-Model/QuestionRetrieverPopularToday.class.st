@@ -4,7 +4,7 @@ Class {
 	#category : #'TP-Refactoring-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 QuestionRetrieverPopularToday >> retrieveQuestions: aUser [
 	| popularTCol averageVotes temp |
 	popularTCol := OrderedCollection new.
@@ -15,7 +15,7 @@ QuestionRetrieverPopularToday >> retrieveQuestions: aUser [
 	averageVotes := (cuoora questions sum: [ :q | q positiveVotes size ])
 		/ popularTCol size.
 	temp := (popularTCol
-		select: [ :q | q positiveVotes size >= averageVotes ])
-		asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ].
-	^ self without: aUser questions: (self lastQuestions: temp)
+		select: [ :q | q positiveVotes size >= averageVotes ]).
+		
+	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: temp))
 ]

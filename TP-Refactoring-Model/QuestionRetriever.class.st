@@ -28,7 +28,7 @@ QuestionRetriever >> initialize [
 	option := #social
 ]
 
-{ #category : #accessing }
+{ #category : #accesing }
 QuestionRetriever >> lastQuestions: aQuestionList [
 	^ aQuestionList last: (100 min: aQuestionList size)
 ]
@@ -38,12 +38,18 @@ QuestionRetriever >> option: anOption [
 	option := anOption
 ]
 
+{ #category : #accesing }
+QuestionRetriever >> orderByPositiveVotes: aQuestionList [
+	^ aQuestionList
+		asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ]
+]
+
 { #category : #retrieving }
 QuestionRetriever >> retrieveQuestions: aUser [
 	self subclassResponsibility 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accesing }
 QuestionRetriever >> without: aUser questions: aQuestionList [
 
 	^ aQuestionList reject: [ :q | q user = aUser ]
