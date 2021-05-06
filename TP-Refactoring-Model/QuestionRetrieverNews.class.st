@@ -6,7 +6,5 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverNews >> retrieveQuestions: aUser [
-	| newsCol |
-	cuoora todayQuestions .
-	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: newsCol))
+	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: cuoora todayQuestions))
 ]
