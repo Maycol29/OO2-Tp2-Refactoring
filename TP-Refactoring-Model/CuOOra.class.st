@@ -41,7 +41,7 @@ CuOOra >> initialize [
 
 { #category : #accessing }
 CuOOra >> popularQuestion [
-^self todayQuestions select:[:question | question positiveVotes size > (self averageQuestionVotes)].
+^self todayQuestions select:[:question | question positiveVotes size >= (self averageQuestionVotes)].
 ]
 
 { #category : #accessing }
