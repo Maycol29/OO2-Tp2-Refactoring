@@ -89,6 +89,13 @@ User >> questionsOfInterest [
 ]
 
 { #category : #accessing }
+User >> questionsOfInterestTopics [
+^interestTopics flatCollect:[:topic |topic question].
+
+
+]
+
+{ #category : #accessing }
 User >> userQuestions [
 	^ userQuestions
 ]

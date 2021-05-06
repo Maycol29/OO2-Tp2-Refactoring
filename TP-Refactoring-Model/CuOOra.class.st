@@ -40,6 +40,11 @@ CuOOra >> questions [
 ]
 
 { #category : #accessing }
+CuOOra >> todayQuestions [
+	^questions select: [ :q | q timestamp asDate = Date today]
+]
+
+{ #category : #accessing }
 CuOOra >> topics [
 	^ topics
 ]

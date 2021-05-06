@@ -7,10 +7,7 @@ Class {
 { #category : #accessing }
 QuestionRetrieverInterestTopics >> retrieveQuestions: aUser [
 	| topicsCol temp |
-	topicsCol := OrderedCollection new.
-	aUser interestTopics
-		do: [ :topic | topicsCol addAll: topic questions ].
-	
+	aUser questionOfInterestTopics.
 	
 	^self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: topicsCol)).
 ]

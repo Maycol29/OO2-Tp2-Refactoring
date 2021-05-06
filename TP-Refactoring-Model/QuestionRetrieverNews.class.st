@@ -7,11 +7,6 @@ Class {
 { #category : #accessing }
 QuestionRetrieverNews >> retrieveQuestions: aUser [
 	| newsCol temp |
-	newsCol := OrderedCollection new.
-	cuoora questions
-		do: [ :q | 
-			q timestamp asDate = Date today
-				ifTrue: [ newsCol add: q ] ].
-			
+	cuoora todayQuestions .
 	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: newsCol))
 ]
