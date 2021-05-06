@@ -17,11 +17,6 @@ QuestionRetriever >> cuoora: aCuooraInstance [
 	cuoora := aCuooraInstance 
 ]
 
-{ #category : #initializing }
-QuestionRetriever >> initialize [
-	option := #social
-]
-
 { #category : #accesing }
 QuestionRetriever >> lastQuestions: aQuestionList [
 	^ aQuestionList last: (100 min: aQuestionList size)
