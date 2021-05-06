@@ -110,9 +110,9 @@ QuestionRetrieverTest >> setUp [
 	topicOO1 := Topic name: 'OO1' description: 'This topic is for discussing about OO1 issues'.
 	topicOO2 := Topic name: 'OO2' description: 'This topic is for discussing about OO2 issues'.	
 
-	user1 addTopic: topicOO1.
-	user2 addTopic: topicOO2.
-	user3 addTopic: topicOO2.
+	user1 addInterestTopic: topicOO1.
+	user2 addInterestTopic: topicOO2.
+	user3 addInterestTopic: topicOO2.
 
 	cuoora := CuOOra new.
 	cuoora addUser: user1; addUser: user2; addUser: user3.

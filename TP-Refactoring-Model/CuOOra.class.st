@@ -11,7 +11,7 @@ Class {
 
 { #category : #adding }
 CuOOra >> addQuestion: aQuestion forUser: aUser [
-	aUser addQuestion: aQuestion.
+	aUser addUserQuestion: aQuestion.
 	questions add: aQuestion.
 ]
 
@@ -37,6 +37,11 @@ CuOOra >> initialize [
 { #category : #accessing }
 CuOOra >> questions [
 	^ questions
+]
+
+{ #category : #accessing }
+CuOOra >> todayQuestions [
+	^questions select: [ :q | q timestamp asDate = Date today]
 ]
 
 { #category : #accessing }

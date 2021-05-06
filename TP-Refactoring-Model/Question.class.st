@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'title',
 		'answers',
-		'topics'
+		'topicsQuestion'
 	],
 	#category : #'TP-Refactoring-Model'
 }
@@ -20,7 +20,7 @@ Question class >> newWithTitle: title description: aDescription user: aUser topi
 
 { #category : #adding }
 Question >> addTopic: aTopic [
-	topics add: aTopic.
+	topicsQuestion add: aTopic.
 	aTopic addQuestion: self.
 
 ]
@@ -29,7 +29,7 @@ Question >> addTopic: aTopic [
 Question >> initialize [
 	super initialize .
 	answers := OrderedCollection new.
-	topics := OrderedCollection new.
+	topicsQuestion := OrderedCollection new.
 ]
 
 { #category : #accessing }
@@ -43,6 +43,6 @@ Question >> title: aTitle [
 ]
 
 { #category : #accessing }
-Question >> topics [
-	^topics 
+Question >> topicsQuestion [
+	^topicsQuestion 
 ]

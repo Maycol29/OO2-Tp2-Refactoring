@@ -31,11 +31,6 @@ Publication >> description [
 	^ description
 ]
 
-{ #category : #private }
-Publication >> description: anObject [
-	description := anObject
-]
-
 { #category : #initialization }
 Publication >> initialize [
 	votes := OrderedCollection new.
@@ -59,19 +54,9 @@ Publication >> timestamp [
 	^ timestamp
 ]
 
-{ #category : #private }
-Publication >> timestamp: anObject [
-	timestamp := anObject
-]
-
 { #category : #accessing }
 Publication >> user [
 	^ user
-]
-
-{ #category : #private }
-Publication >> user: anObject [
-	user := anObject
 ]
 
 { #category : #accessing }
