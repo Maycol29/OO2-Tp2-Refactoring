@@ -6,5 +6,5 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverPopularToday >> retrieveQuestions: aUser [
-	^ cuoora popularQuestion
+	^ cuoora popularQuestions
 ]
