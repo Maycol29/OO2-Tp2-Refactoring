@@ -6,5 +6,5 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverSocial >> retrieveQuestions: aUser [
-	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: aUser followingQuestions))
+	^ aUser followingQuestions
 ]

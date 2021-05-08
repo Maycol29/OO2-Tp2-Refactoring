@@ -28,6 +28,11 @@ QuestionRetriever >> orderByPositiveVotes: aQuestionList [
 		asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ]
 ]
 
+{ #category : #services }
+QuestionRetriever >> retrieve:aUser [ 
+^self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: (self retrieveQuestions: aUser)))
+]
+
 { #category : #retrieving }
 QuestionRetriever >> retrieveQuestions: aUser [
 	self subclassResponsibility 

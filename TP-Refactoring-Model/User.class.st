@@ -91,7 +91,7 @@ User >> questionRetriever [
 
 { #category : #accessing }
 User >> questionsOfInterest [
-	^ questionRetriever retrieveQuestions: self.
+	^ questionRetriever retrieve: self.
 ]
 
 { #category : #accessing }

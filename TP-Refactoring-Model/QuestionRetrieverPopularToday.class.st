@@ -6,5 +6,5 @@ Class {
 
 { #category : #accessing }
 QuestionRetrieverPopularToday >> retrieveQuestions: aUser [
-	^ self without: aUser questions: (self lastQuestions: (self orderByPositiveVotes: cuoora popularQuestion))
+	^ cuoora popularQuestion
 ]
